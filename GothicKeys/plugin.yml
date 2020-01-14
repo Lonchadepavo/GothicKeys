@@ -1,0 +1,10 @@
+name: GothicKeys
+main: com.loncha.gothickeys.Main
+version: 0.1
+commands:
+   renombrarllave:
+      description: Comando para renombrar llaves que ya tengan asignada una cerradura.
+      usage: /renombrarllave <nombre>
+   test:
+      description: test
+      usage: /test
