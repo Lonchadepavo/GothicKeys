@@ -3,8 +3,10 @@ package com.loncha.gothickeys;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -116,6 +118,7 @@ public class Main extends JavaPlugin implements Listener {
 				
 				if (itemOnCursor != null) {
 					if (itemOnCursor.hasItemMeta()) {
+						//ASIGNAR LLAVE A UNA CERRADURA
 						if (itemOnCursor.getItemMeta().getDisplayName().equals("Llave")) {
 							if (!itemOnCursor.getItemMeta().hasLore()) {
 								if (clickedItem.hasItemMeta()) {
@@ -139,6 +142,21 @@ public class Main extends JavaPlugin implements Listener {
 												
 											}
 										}
+									}
+								}
+							}
+						//CLONAR CERRADURAS
+						} else if (itemOnCursor.getItemMeta().getDisplayName().contains("Cerradura")) {
+							if (clickedItem.hasItemMeta()) {
+								if (clickedItem.getItemMeta().hasLore()) {
+									if (clickedItem.getItemMeta().getDisplayName().equals(itemOnCursor.getItemMeta().getDisplayName())) {
+										e.setCancelled(true);
+										
+										ItemMeta clickedItemMeta = clickedItem.getItemMeta();
+										
+										itemOnCursor.setItemMeta(clickedItemMeta);
+										p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_LAND, 3.0F, 1F);
+										
 									}
 								}
 							}
@@ -721,6 +739,7 @@ public class Main extends JavaPlugin implements Listener {
 		
 		if (b.hasMetadata("locked")) {
 			b.removeMetadata("locked", this);
+			eliminarLocks(b.getLocation());
 		}
 	}
 	
@@ -794,6 +813,46 @@ public class Main extends JavaPlugin implements Listener {
 			guardarLocks(b, rutaArchivo, nombre, dificultadCerradura);
 		}
 
+	}
+	
+	public void eliminarLocks(Location l) {
+		String rutaArchivo = "plugins/GothicKeys/locks.txt";
+		File f = new File(rutaArchivo);
+		
+		String coordenadas = (int) (l.getX()) + " " + (int) (l.getY()) + " " + (int) (l.getZ());
+		
+		ArrayList<String> nuevoArchivo = new ArrayList<String>();
+		try {
+			FileReader fr = new FileReader(f);
+			BufferedReader br = new BufferedReader(fr);
+			
+			String line;
+			while((line = br.readLine()) != null) {
+				if (!line.contains(coordenadas)) {
+					nuevoArchivo.add(line);
+				}
+			}
+			
+			br.close();
+			f.delete();
+			
+			f.createNewFile();
+			
+			FileWriter fw = new FileWriter(f, true);
+			BufferedWriter bw = new BufferedWriter (fw);
+
+			for (String dato : nuevoArchivo) {
+				bw.write(dato);
+				bw.newLine();
+			}
+			
+			bw.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+			
 	}
 
 }

@@ -35,6 +35,43 @@ public class Lockpicks implements Listener{
 				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 2, " ", "");
 				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 3, " ", "");
 				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 4, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 5, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 10, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 11, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 12, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 13, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 14, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 18, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 19, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 20, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 21, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 22, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 23, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 27, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 28, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 29, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 30, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 31, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 32, " ", "");
+				
+				//Pernos
+				createDisplay(Material.IRON_DOOR, guiLockPick, 33, "Perno 1", "0");
+				createDisplay(Material.IRON_DOOR, guiLockPick, 34, "Perno 2", "0");
+				createDisplay(Material.IRON_DOOR, guiLockPick, 35, "Perno 3", "0");
+				
+				p.openInventory(guiLockPick);
+				codigo.put(p, setCodigo(3));
+				break;
+			case 1:
+				//Número de ganzúas
+				createDisplay(Material.ARROW, guiLockPick, 0, "Ganzúas: " + String.valueOf(getNumeroGanzuas(p)), "Número de ganzúas disponibles");
+				createDisplay(Material.BANNER, guiLockPick, 9, "0", "Número de pernos movidos");
+				
+				//Paneles de cristal
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 1, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 2, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 3, " ", "");
+				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 4, " ", "");
 				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 10, " ", "");
 				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 11, " ", "");
 				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 12, " ", "");
@@ -59,7 +96,7 @@ public class Lockpicks implements Listener{
 				p.openInventory(guiLockPick);
 				codigo.put(p, setCodigo(4));
 				break;
-			case 1:
+			case 2:
 				//Número de ganzúas
 				createDisplay(Material.ARROW, guiLockPick, 0, "Ganzúas: " + String.valueOf(getNumeroGanzuas(p)), "Número de ganzúas disponibles");
 				createDisplay(Material.BANNER, guiLockPick, 9, "0", "Número de pernos movidos");
@@ -89,32 +126,6 @@ public class Lockpicks implements Listener{
 				
 				p.openInventory(guiLockPick);
 				codigo.put(p, setCodigo(5));
-				break;
-			case 2:
-				//Número de ganzúas
-				createDisplay(Material.ARROW, guiLockPick, 0, "Ganzúas: " + String.valueOf(getNumeroGanzuas(p)), "Número de ganzúas disponibles");
-				createDisplay(Material.BANNER, guiLockPick, 9, "0", "Número de pernos movidos");
-				
-				//Paneles de cristal
-				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 1, " ", "");
-				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 10, " ", "");
-				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 18, " ", "");
-				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 19, " ", "");
-				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 27, " ", "");
-				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 28, " ", "");
-
-				
-				//Pernos
-				createDisplay(Material.IRON_DOOR, guiLockPick, 29, "Perno 1", "0");
-				createDisplay(Material.IRON_DOOR, guiLockPick, 30, "Perno 2", "0");
-				createDisplay(Material.IRON_DOOR, guiLockPick, 31, "Perno 3", "0");
-				createDisplay(Material.IRON_DOOR, guiLockPick, 32, "Perno 4", "0");
-				createDisplay(Material.IRON_DOOR, guiLockPick, 33, "Perno 5", "0");
-				createDisplay(Material.IRON_DOOR, guiLockPick, 34, "Perno 6", "0");
-				createDisplay(Material.IRON_DOOR, guiLockPick, 35, "Perno 7", "0");
-				
-				p.openInventory(guiLockPick);
-				codigo.put(p, setCodigo(7));
 				break;
 		}
 	}
@@ -173,7 +184,7 @@ public class Lockpicks implements Listener{
 		
 		if (!checker[numeroPerno][0].equals(ordenPerno)) {
 			for (Player players : Bukkit.getOnlinePlayers()) {
-				if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
+				if (p.getLocation().distanceSquared(players.getLocation()) <= 5) {
 					players.getWorld().playSound(p.getLocation(), Sound.ENTITY_ITEM_BREAK, 1.0F, 0.01F);
 				}
 			}
@@ -193,7 +204,7 @@ public class Lockpicks implements Listener{
 		
 		if (checker[numeroPerno][1].equals(posicionPerno)) {
 			for (Player players : Bukkit.getOnlinePlayers()) {
-				if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
+				if (p.getLocation().distanceSquared(players.getLocation()) <= 5) {
 					players.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_LAND, 1.0F, 0.01F);
 				}
 			}
@@ -202,7 +213,7 @@ public class Lockpicks implements Listener{
 			System.out.println("entra");
 			
 			for (Player players : Bukkit.getOnlinePlayers()) {
-				if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
+				if (p.getLocation().distanceSquared(players.getLocation()) <= 5) {
 					players.getWorld().playSound(p.getLocation(), Sound.ENTITY_ITEM_BREAK, 1.0F, 0.01F);
 				}
 			}
