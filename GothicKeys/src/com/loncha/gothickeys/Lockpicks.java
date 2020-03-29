@@ -27,8 +27,8 @@ public class Lockpicks implements Listener{
 		switch(dificultad) {
 			case 0:
 				//Número de ganzúas
-				createDisplay(Material.ARROW, guiLockPick, 0, "Ganzúas: " + String.valueOf(getNumeroGanzuas(p)), "Número de ganzúas disponibles");
-				createDisplay(Material.BANNER, guiLockPick, 9, "0", "Número de pernos movidos");
+				createDisplay(Material.ARROW, guiLockPick, 0, "Ganzuas: " + String.valueOf(getNumeroGanzuas(p)), "Numero de ganzuas disponibles");
+				createDisplay(Material.BANNER, guiLockPick, 9, "0", "Numero de pernos movidos");
 				
 				//Paneles de cristal
 				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 1, " ", "");
@@ -64,8 +64,8 @@ public class Lockpicks implements Listener{
 				break;
 			case 1:
 				//Número de ganzúas
-				createDisplay(Material.ARROW, guiLockPick, 0, "Ganzúas: " + String.valueOf(getNumeroGanzuas(p)), "Número de ganzúas disponibles");
-				createDisplay(Material.BANNER, guiLockPick, 9, "0", "Número de pernos movidos");
+				createDisplay(Material.ARROW, guiLockPick, 0, "Ganzuas: " + String.valueOf(getNumeroGanzuas(p)), "Número de ganzuas disponibles");
+				createDisplay(Material.BANNER, guiLockPick, 9, "0", "Numero de pernos movidos");
 				
 				//Paneles de cristal
 				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 1, " ", "");
@@ -98,8 +98,8 @@ public class Lockpicks implements Listener{
 				break;
 			case 2:
 				//Número de ganzúas
-				createDisplay(Material.ARROW, guiLockPick, 0, "Ganzúas: " + String.valueOf(getNumeroGanzuas(p)), "Número de ganzúas disponibles");
-				createDisplay(Material.BANNER, guiLockPick, 9, "0", "Número de pernos movidos");
+				createDisplay(Material.ARROW, guiLockPick, 0, "Ganzuas: " + String.valueOf(getNumeroGanzuas(p)), "Numero de ganzuas disponibles");
+				createDisplay(Material.BANNER, guiLockPick, 9, "0", "Numero de pernos movidos");
 				
 				//Paneles de cristal
 				createDisplay(Material.STAINED_GLASS_PANE, guiLockPick, 1, " ", "");
@@ -139,7 +139,7 @@ public class Lockpicks implements Listener{
 		for (ItemStack item : items) {
 			if (item != null) {
 				if (item.hasItemMeta()) {
-					if (item.getItemMeta().getDisplayName().contains("Ganzúa")) {
+					if (item.getItemMeta().getDisplayName().contains("Ganzua")) {
 						if (item.getType() == Material.NETHER_STAR) {
 							int numeroGanzuas = item.getAmount();
 							for (int i = 1; i <= numeroGanzuas; i++) {
@@ -191,7 +191,7 @@ public class Lockpicks implements Listener{
 			restarGanzuas(p);
 			
 			p.closeInventory();
-			p.sendTitle(ChatColor.DARK_RED+"Se ha roto una ganzúa", "");
+			p.sendTitle(ChatColor.DARK_RED+"Se ha roto una ganzua", "");
 			
 			return false;
 		} else {
@@ -209,9 +209,7 @@ public class Lockpicks implements Listener{
 				}
 			}
 			
-		} else if (Integer.valueOf(posicionPerno) > Integer.valueOf(checker[numeroPerno][1])) {
-			System.out.println("entra");
-			
+		} else if (Integer.valueOf(posicionPerno) > Integer.valueOf(checker[numeroPerno][1])) {		
 			for (Player players : Bukkit.getOnlinePlayers()) {
 				if (p.getLocation().distanceSquared(players.getLocation()) <= 5) {
 					players.getWorld().playSound(p.getLocation(), Sound.ENTITY_ITEM_BREAK, 1.0F, 0.01F);
@@ -220,7 +218,7 @@ public class Lockpicks implements Listener{
 			restarGanzuas(p);
 			
 			p.closeInventory();
-			p.sendTitle(ChatColor.DARK_RED+"Se ha roto una ganzúa", "");
+			p.sendTitle(ChatColor.DARK_RED+"Se ha roto una ganzua", "");
 		}
 		return false;
 	}
@@ -248,8 +246,8 @@ public class Lockpicks implements Listener{
 		ItemStack ganzuas = p.getInventory().getItemInMainHand();
 
 		if (ganzuas.hasItemMeta()) {
-			if (ganzuas.getItemMeta().getDisplayName().contains("Ganzúa")) {
-				if (ganzuas.getType() == Material.NETHER_STAR) {
+			if (ganzuas.getItemMeta().getDisplayName().contains("Ganzua")) {
+				if (ganzuas.getType() == Material.BLAZE_ROD) {
 					ganzuas.setAmount(ganzuas.getAmount()-1);
 				}
 			}

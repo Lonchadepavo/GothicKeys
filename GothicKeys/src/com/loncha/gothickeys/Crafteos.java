@@ -22,49 +22,50 @@ public class Crafteos implements Listener{
 	public void onItemCraft(CraftItemEvent e) {
 		if (e.getInventory().getResult().hasItemMeta()) {
 			String nombre = e.getInventory().getResult().getItemMeta().getDisplayName();
-			
-			if (nombre.equals("Cerradura débil")) {
+			System.out.println(nombre);
+			if (nombre.equals("§fCerradura debil")) {
+				System.out.println("entra");
 				e.getWhoClicked().getWorld().playSound(e.getWhoClicked().getLocation(), Sound.BLOCK_ANVIL_USE, 3.0F, 1F);
 				ItemStack item = e.getInventory().getResult();
 				ItemMeta meta = item.getItemMeta();
 				
 				int idCerradura = getNumeroRandom();
 				
-				List<String> lore = new ArrayList<String>(Arrays.asList("Número de cerradura:", String.valueOf(idCerradura), "Débil"));
+				List<String> lore = new ArrayList<String>(Arrays.asList("Numero de cerradura:", String.valueOf(idCerradura), "Debil"));
 				meta.setLore(lore);
 				
 				item.setItemMeta(meta);
 				
-			} else if (nombre.equals("Cerradura normal")) {
+			} else if (nombre.equals("§fCerradura normal")) {
 				e.getWhoClicked().getWorld().playSound(e.getWhoClicked().getLocation(), Sound.BLOCK_ANVIL_USE, 3.0F, 1F);
 				ItemStack item = e.getInventory().getResult();
 				ItemMeta meta = item.getItemMeta();
 				
 				int idCerradura = getNumeroRandom();
 				
-				List<String> lore = new ArrayList<String>(Arrays.asList("Número de cerradura:", String.valueOf(idCerradura), "Normal"));
+				List<String> lore = new ArrayList<String>(Arrays.asList("Numero de cerradura:", String.valueOf(idCerradura), "Normal"));
 				meta.setLore(lore);
 				
 				item.setItemMeta(meta);
 				
-			} else if (nombre.equals("Cerradura dificil")) {
+			} else if (nombre.equals("§fCerradura dificil")) {
 				e.getWhoClicked().getWorld().playSound(e.getWhoClicked().getLocation(), Sound.BLOCK_ANVIL_USE, 3.0F, 1F);
 				ItemStack item = e.getInventory().getResult();
 				ItemMeta meta = item.getItemMeta();
 				
 				int idCerradura = getNumeroRandom();
 				
-				List<String> lore = new ArrayList<String>(Arrays.asList("Número de cerradura:", String.valueOf(idCerradura), "Dificil"));
+				List<String> lore = new ArrayList<String>(Arrays.asList("Numero de cerradura:", String.valueOf(idCerradura), "Dificil"));
 				meta.setLore(lore);
 				
 				item.setItemMeta(meta);
 				
-			} else if (nombre.contains("Ganzúa")) {
+			} else if (nombre.contains("Ganzua")) {
 				e.getWhoClicked().getWorld().playSound(e.getWhoClicked().getLocation(), Sound.BLOCK_ANVIL_USE, 3.0F, 1F);
 				ItemStack item = e.getInventory().getResult();
 				ItemMeta meta = item.getItemMeta();
 				
-				List<String> lore = new ArrayList<String>(Arrays.asList("Ganzúa"));
+				List<String> lore = new ArrayList<String>(Arrays.asList("Ganzua"));
 				meta.setLore(lore);
 				
 				item.setItemMeta(meta);

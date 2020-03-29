@@ -72,7 +72,7 @@ public class Main extends JavaPlugin implements Listener {
 				if (p.getInventory().getItemInMainHand() != null) {
 					if (p.getInventory().getItemInMainHand().hasItemMeta()) {
 						if (p.getInventory().getItemInMainHand().getItemMeta().hasLore()) {
-							if (p.getInventory().getItemInMainHand().getItemMeta().getLore().get(0).equals("Número de llave:")) {
+							if (p.getInventory().getItemInMainHand().getItemMeta().getLore().get(0).equals("Numero de llave:")) {
 								String nombre = "";
 								for (String s : args) {
 									nombre += s+" ";
@@ -119,7 +119,7 @@ public class Main extends JavaPlugin implements Listener {
 				if (itemOnCursor != null) {
 					if (itemOnCursor.hasItemMeta()) {
 						//ASIGNAR LLAVE A UNA CERRADURA
-						if (itemOnCursor.getItemMeta().getDisplayName().equals("Llave")) {
+						if (itemOnCursor.getItemMeta().getDisplayName().equals("§fLlave")) {
 							if (!itemOnCursor.getItemMeta().hasLore()) {
 								if (clickedItem.hasItemMeta()) {
 									if (clickedItem.getItemMeta().hasLore()) {
@@ -127,15 +127,15 @@ public class Main extends JavaPlugin implements Listener {
 											e.setCancelled(true);
 											
 											ItemMeta onCursorMeta = itemOnCursor.getItemMeta();
-											List<String> lore = new ArrayList<String>(Arrays.asList("Número de llave:", clickedItem.getItemMeta().getLore().get(1)));
+											List<String> lore = new ArrayList<String>(Arrays.asList("Numero de llave:", clickedItem.getItemMeta().getLore().get(1)));
 											onCursorMeta.setLore(lore);
 											itemOnCursor.setItemMeta(onCursorMeta);
 											p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_LAND, 3.0F, 1F);
 											
-										} else if (clickedItem.getItemMeta().getLore().get(0).equals("Número de llave:")) {
+										} else if (clickedItem.getItemMeta().getLore().get(0).equals("Numero de llave:")) {
 											if (clickedItem.getItemMeta().hasLore()) {
 												ItemMeta onCursorMeta = itemOnCursor.getItemMeta();
-												List<String> lore = new ArrayList<String>(Arrays.asList("Número de llave:", clickedItem.getItemMeta().getLore().get(1)));
+												List<String> lore = new ArrayList<String>(Arrays.asList("Numero de llave:", clickedItem.getItemMeta().getLore().get(1)));
 												onCursorMeta.setLore(lore);
 												itemOnCursor.setItemMeta(onCursorMeta);
 												p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_LAND, 3.0F, 1F);
@@ -237,7 +237,7 @@ public class Main extends JavaPlugin implements Listener {
 							
 							if (l.checkIfOpen(p, posiciones)) {
 								p.closeInventory();
-								p.sendTitle(ChatColor.GREEN+"Cerradura forzada con éxito", "");
+								p.sendTitle(ChatColor.GREEN+"Cerradura forzada con exito", "");
 								Block b = l.locked.get(p);
 								
 								if (b.getType().toString().contains("TRAP_DOOR") || b.getType().toString().contains("TRAPDOOR")) {
@@ -302,7 +302,7 @@ public class Main extends JavaPlugin implements Listener {
 					
 					if (p.getInventory().getItemInMainHand().hasItemMeta() && p.getInventory().getItemInMainHand().getItemMeta().hasLore()) {
 						switch(p.getInventory().getItemInMainHand().getItemMeta().getLore().get(0)){	
-							case "Número de cerradura:":
+							case "Numero de cerradura:":
 								e.setCancelled(true);
 								
 								List<String> lore = p.getInventory().getItemInMainHand().getItemMeta().getLore();
@@ -322,7 +322,7 @@ public class Main extends JavaPlugin implements Listener {
 								
 								break;
 							
-								case "Número de llave:":
+								case "Numero de llave:":
 									if (b.hasMetadata("locked")) {
 										e.setCancelled(true);
 										
@@ -351,11 +351,11 @@ public class Main extends JavaPlugin implements Listener {
 										}
 								break;
 								
-								case "Ganzúa":
+								case "Ganzua":
 									if (b.hasMetadata("locked")) {
 										e.setCancelled(true);
 										
-										if (b.hasMetadata("Débil")) {
+										if (b.hasMetadata("Debil")) {
 											l.lockPick(p, b, 0);
 										} else if (b.hasMetadata("Normal")) {
 											l.lockPick(p, b, 1);
@@ -365,7 +365,7 @@ public class Main extends JavaPlugin implements Listener {
 										
 										for (Player players : Bukkit.getOnlinePlayers()) {
 											if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
-												players.sendMessage(ChatColor.GOLD+p.getDisplayName()+ ChatColor.WHITE+" está forzando una cerradura");
+												players.sendMessage(ChatColor.GOLD+p.getDisplayName()+ ChatColor.WHITE+" esta forzando una cerradura");
 											}
 										}
 										
@@ -405,7 +405,7 @@ public class Main extends JavaPlugin implements Listener {
 					
 					if (p.getInventory().getItemInMainHand().hasItemMeta() && p.getInventory().getItemInMainHand().getItemMeta().hasLore()) {
 						switch(p.getInventory().getItemInMainHand().getItemMeta().getLore().get(0)){	
-							case "Número de cerradura:":
+							case "Numero de cerradura:":
 								e.setCancelled(true);
 								
 								List<String> lore = p.getInventory().getItemInMainHand().getItemMeta().getLore();
@@ -442,7 +442,7 @@ public class Main extends JavaPlugin implements Listener {
 								
 								break;
 							
-								case "Número de llave:":
+								case "Numero de llave:":
 									BlockState blockStateDown1 = b.getState();
 									Door doordown1 = (Door) blockStateDown1.getData();
 									
@@ -553,7 +553,7 @@ public class Main extends JavaPlugin implements Listener {
 									}
 								break;
 								
-								case "Ganzúa":
+								case "Ganzua":
 									if (door.isTopHalf()) {
 										Location loc = new Location(p.getWorld(), b.getX(), b.getY()-1, b.getZ());
 										Block ba = loc.getBlock();
@@ -561,7 +561,7 @@ public class Main extends JavaPlugin implements Listener {
 										if (ba.hasMetadata("locked")) {
 											e.setCancelled(true);
 	
-											if (ba.hasMetadata("Débil")) {
+											if (ba.hasMetadata("Debil")) {
 												l.lockPick(p, b, 0);
 											} else if (ba.hasMetadata("Normal")) {
 												l.lockPick(p, b, 1);
@@ -569,11 +569,7 @@ public class Main extends JavaPlugin implements Listener {
 												l.lockPick(p, b, 2);
 											}
 											
-											for (Player players : Bukkit.getOnlinePlayers()) {
-												if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
-													players.sendMessage(ChatColor.GOLD+p.getDisplayName()+ ChatColor.WHITE+" está forzando una cerradura");
-												}
-											}
+											reproducirSonido(p, Sound.BLOCK_ANVIL_FALL, 10);
 											
 										} else {
 											p.sendTitle(ChatColor.GREEN+"Esta puerta no tiene cerradura","");
@@ -582,7 +578,7 @@ public class Main extends JavaPlugin implements Listener {
 										if (b.hasMetadata("locked")) {
 											e.setCancelled(true);
 											
-											if (b.hasMetadata("Débil")) {
+											if (b.hasMetadata("Debil")) {
 												l.lockPick(p, b, 0);
 											} else if (b.hasMetadata("Normal")) {
 												l.lockPick(p, b, 1);
@@ -590,11 +586,7 @@ public class Main extends JavaPlugin implements Listener {
 												l.lockPick(p, b, 2);
 											}
 											
-											for (Player players : Bukkit.getOnlinePlayers()) {
-												if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
-													players.sendMessage(ChatColor.GOLD+p.getDisplayName()+ ChatColor.WHITE+" está forzando una cerradura");
-												}
-											}
+											reproducirSonido(p, Sound.BLOCK_ANVIL_FALL, 10);
 											
 										} else {
 											p.sendTitle(ChatColor.GREEN+"Esta puerta no tiene cerradura","");
@@ -660,7 +652,7 @@ public class Main extends JavaPlugin implements Listener {
 			} else if (b.getType().toString().contains("CHEST") || b.getType().toString().contains("SHULKER")) {
 				if (p.getInventory().getItemInMainHand().hasItemMeta() && p.getInventory().getItemInMainHand().getItemMeta().hasLore()) {
 					switch(p.getInventory().getItemInMainHand().getItemMeta().getLore().get(0)){
-						case "Número de cerradura:":
+						case "Numero de cerradura:":
 							e.setCancelled(true);
 							
 							List<String> lore = p.getInventory().getItemInMainHand().getItemMeta().getLore();
@@ -676,7 +668,7 @@ public class Main extends JavaPlugin implements Listener {
 							
 							break;
 							
-						case "Número de llave:":
+						case "Numero de llave:":
 							if (b.hasMetadata("locked")) {
 								if (p.getInventory().getItemInMainHand().getItemMeta().hasLore()) {
 									List<String> lorellave = p.getInventory().getItemInMainHand().getItemMeta().getLore();
@@ -692,11 +684,11 @@ public class Main extends JavaPlugin implements Listener {
 							}
 							break;
 						
-						case "Ganzúa":
+						case "Ganzua":
 							if (b.hasMetadata("locked")) {
 								e.setCancelled(true);
 
-								if (b.hasMetadata("Débil")) {
+								if (b.hasMetadata("Debil")) {
 									l.lockPick(p, b, 0);
 								} else if (b.hasMetadata("Normal")) {
 									l.lockPick(p, b, 1);
@@ -704,11 +696,7 @@ public class Main extends JavaPlugin implements Listener {
 									l.lockPick(p, b, 2);
 								}
 								
-								for (Player players : Bukkit.getOnlinePlayers()) {
-									if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
-										players.sendMessage(ChatColor.GOLD+p.getDisplayName()+ ChatColor.WHITE+" está forzando una cerradura");
-									}
-								}
+								reproducirSonido(p, Sound.BLOCK_ANVIL_FALL, 10);
 								
 							} else {
 								p.sendTitle(ChatColor.GREEN+"Este cofre no tiene cerradura","");
@@ -853,6 +841,14 @@ public class Main extends JavaPlugin implements Listener {
 		}
 		
 			
+	}
+	
+	public void reproducirSonido(Player p, Sound sonido, int rango) {
+        for (Player players : Bukkit.getOnlinePlayers()) {
+			if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
+				players.getWorld().playSound(p.getLocation(), sonido, 1.0F, 0.01F);
+			}
+        }
 	}
 
 }
