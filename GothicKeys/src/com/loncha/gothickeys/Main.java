@@ -95,11 +95,6 @@ public class Main extends JavaPlugin implements Listener {
 			} else {
 				return false;
 			}
-		} else if (cmd.getName().equalsIgnoreCase("test")) {
-			Block b = p.getLocation().getBlock();
-			l.lockPick(p, b, 0);
-			
-			return true;
 		}
 		
 		return false;
@@ -157,6 +152,14 @@ public class Main extends JavaPlugin implements Listener {
 										itemOnCursor.setItemMeta(clickedItemMeta);
 										p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_LAND, 3.0F, 1F);
 										
+									} else if (clickedItem.getItemMeta().getLore().get(0).contains("llave")) {
+										e.setCancelled(true);
+										
+										ItemMeta cursorItemMeta = itemOnCursor.getItemMeta();
+										
+										cursorItemMeta.setLore(new ArrayList<String>(Arrays.asList(cursorItemMeta.getLore().get(0), clickedItem.getItemMeta().getLore().get(1), cursorItemMeta.getLore().get(2))));
+										itemOnCursor.setItemMeta(cursorItemMeta);
+										p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_LAND, 3.0F, 1F);
 									}
 								}
 							}
@@ -313,7 +316,9 @@ public class Main extends JavaPlugin implements Listener {
 									
 									if (!b.hasMetadata("locked")) {
 										crearLocked(b.getLocation(), idLlave, dificultadCerradura, true);
-										p.getInventory().remove(p.getInventory().getItemInMainHand());
+
+										p.getInventory().setItemInMainHand(null);
+										System.out.println("cierra");
 									} else {
 										p.sendTitle(ChatColor.GREEN+"Esta puerta ya tiene cerradura","");
 									}
@@ -419,7 +424,7 @@ public class Main extends JavaPlugin implements Listener {
 										String dificultadCerradura = lore.get(2);
 										
 										crearLocked(ba.getLocation(), idLlave, dificultadCerradura, true);
-										p.getInventory().remove(p.getInventory().getItemInMainHand());
+										p.getInventory().setItemInMainHand(null);
 									} else {
 										p.sendTitle(ChatColor.GREEN+"Esta puerta ya tiene cerradura","");
 									}
@@ -661,7 +666,7 @@ public class Main extends JavaPlugin implements Listener {
 							
 							if (!b.hasMetadata("locked")) {
 								crearLocked(b.getLocation(), idLlave, dificultadCerradura, true);
-								p.getInventory().remove(p.getInventory().getItemInMainHand());
+								p.getInventory().setItemInMainHand(null);
 							} else {
 								p.sendTitle(ChatColor.GREEN+"Este cofre ya tiene cerradura","");
 							}
@@ -845,9 +850,22 @@ public class Main extends JavaPlugin implements Listener {
 	
 	public void reproducirSonido(Player p, Sound sonido, int rango) {
         for (Player players : Bukkit.getOnlinePlayers()) {
-			if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
-				players.getWorld().playSound(p.getLocation(), sonido, 1.0F, 0.01F);
-			}
+        	if (p.getWorld() == players.getWorld()) {
+				if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
+					
+					players.getWorld().playSound(p.getLocation(), sonido, 1.0F, 0.01F);
+				}
+        	}
+        }
+	}
+	
+	public void enviarMensajeSimple(Player p, ChatColor color, String mensaje, int rango) {
+        for (Player players : Bukkit.getOnlinePlayers()) {
+        	if (p.getWorld() == players.getWorld()) {
+				if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
+					players.sendMessage(color+mensaje);
+				}
+        	}
         }
 	}
 
