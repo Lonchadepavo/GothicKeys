@@ -438,7 +438,7 @@ public class Main extends JavaPlugin implements Listener {
 									
 									if (!b.hasMetadata("locked")) {
 										crearLocked(b.getLocation(), idLlave, dificultadCerradura, true);
-										p.getInventory().remove(p.getInventory().getItemInMainHand());
+										p.getInventory().setItemInMainHand(null);
 									} else {
 										p.sendTitle(ChatColor.GREEN+"Esta puerta ya tiene cerradura","");
 									}
