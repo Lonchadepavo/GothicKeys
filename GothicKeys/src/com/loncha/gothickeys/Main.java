@@ -318,7 +318,6 @@ public class Main extends JavaPlugin implements Listener {
 										crearLocked(b.getLocation(), idLlave, dificultadCerradura, true);
 
 										p.getInventory().setItemInMainHand(null);
-										System.out.println("cierra");
 									} else {
 										p.sendTitle(ChatColor.GREEN+"Esta puerta ya tiene cerradura","");
 									}
@@ -366,12 +365,6 @@ public class Main extends JavaPlugin implements Listener {
 											l.lockPick(p, b, 1);
 										} else if (b.hasMetadata("Dificil")) {
 											l.lockPick(p, b, 2);
-										}
-										
-										for (Player players : Bukkit.getOnlinePlayers()) {
-											if (p.getLocation().distanceSquared(players.getLocation()) <= 10) {
-												players.sendMessage(ChatColor.GOLD+p.getDisplayName()+ ChatColor.WHITE+" esta forzando una cerradura");
-											}
 										}
 										
 									} else {
